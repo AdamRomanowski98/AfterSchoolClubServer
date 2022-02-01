@@ -5,7 +5,7 @@ const app = express();
 var path = require("path");
 var fs = require("fs");
 var corsOptions = {
-    origin: "https://github.com/adamRomanowski98"
+    origin: "https://AdamRomanowski98.github.io"
 };
 
 app.use(cors(corsOptions));
