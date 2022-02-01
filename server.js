@@ -14,10 +14,8 @@ app.use(express.json());
 
 // simple route
 app.get("/", (req, res) => {
-    res.json({ message: "Welcome to the backend of the application." });
+    res.send("Choose a collection /collection/lessons")
   });
-
-
 
 //file logger
 app.use(function(req, res, next) {
@@ -73,7 +71,7 @@ MongoClient.connect('mongodb+srv://AdamR:root@cluster0.46o1r.mongodb.net/test', 
   });
   app.put('/collection/:collectionName/:id', (req, res, next) => {
     req.collection.updateOne(
-      {_id: ObjectID(req.params.id)},
+      {_id: new ObjectID(req.params.id)},
       {$set: req.body},
       {safe: true, multi: false},
       (e, result) => {
