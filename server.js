@@ -13,8 +13,9 @@ app.use(cors(corsOptions));
 app.use(express.json());
 
 // simple route
+// simple route
 app.get("/", (req, res) => {
-    res.send("Choose a collection /collection/lessons")
+    res.json({ message: "Choose collection /collection/lessons" });
   });
 
 //file logger
