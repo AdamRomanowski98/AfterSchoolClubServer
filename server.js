@@ -4,9 +4,11 @@ const MongoClient = require('mongodb').MongoClient;
 const app = express();
 var path = require("path");
 var fs = require("fs");
+var corsOptions = {
+  origin: "https://AdamRomanowski98.github.io"
+};
 
-
-app.use(cors);
+app.use(cors(corsOptions));
 
 app.use(express.json());
 
