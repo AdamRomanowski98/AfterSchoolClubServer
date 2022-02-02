@@ -4,14 +4,19 @@ const MongoClient = require('mongodb').MongoClient;
 const app = express();
 var path = require("path");
 var fs = require("fs");
-var corsOptions = {
-  origin: "https://AdamRomanowski98.github.io"
-};
 
-app.use(cors(corsOptions));
 
 app.use(express.json());
 
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  res.header("Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, OPTIONS");
+  next();
+});
 // simple route
 // simple route
 app.get("/", (req, res) => {
